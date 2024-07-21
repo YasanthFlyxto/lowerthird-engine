@@ -5,6 +5,9 @@ import { Title } from './Title';
 import { z } from 'zod';
 import { zColor } from '@remotion/zod-types';
 import LowerThird from './LowerThird';
+import { BackgroundAnimation } from './BackgroundAnimation';
+import { RibbonAnimation } from './RibbonAnimation';
+
 
 export const myCompSchema = z.object({
 	titleText: z.string(),
@@ -19,7 +22,9 @@ export const MyComposition: React.FC<z.infer<typeof myCompSchema>> = ({
 }) => {
 	return (
 		<div>
-			<LowerThird/>
+			<LowerThird />
+			{/* <BackgroundAnimation/> */}
+			{/* <RibbonAnimation/> */}
 		</div>
 	);
 };

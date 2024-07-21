@@ -2,7 +2,7 @@ import { useCurrentFrame, interpolate, Easing } from 'remotion';
 import Logo from './flyxtologo.png';
 
 // Helper function to split text into words or characters
-const splitText = (text: string, splitBy: 'characters' | 'words' = 'characters') => {
+const splitText = (text, splitBy = 'characters') => {
   if (splitBy === 'characters') {
     return text.split('').map((char, index) => ({
       char,
@@ -21,43 +21,50 @@ const LowerThird = () => {
   const frame = useCurrentFrame();
 
   // Animate the entire lower third with a complex animation
-  const translateX = interpolate(frame, [0, 15], [-100, 0], { // Speed up
+  const translateX = interpolate(frame, [0, 15], [-100, 0], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
-  const rotateY = interpolate(frame, [0, 15], [90, 0], { // Speed up
+  const rotateY = interpolate(frame, [0, 15], [90, 0], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
-  const opacity = interpolate(frame, [0, 10], [0, 1], { // Speed up
+  const opacity = interpolate(frame, [0, 10], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
 
   // Animate the logo card sliding in from left to right
-  const logoCardTranslateX = interpolate(frame, [0, 15], [-100, 0], { // Speed up
+  const logoCardTranslateX = interpolate(frame, [0, 22], [-100, 0], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
 
+  const logoCardOpacity = interpolate(frame, [0, 22], [0, 1], {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+  });
+
+  
+
   // Animate the logo with a pop-up effect
-  const logoScale = interpolate(frame, [12, 20, 25], [0.5, 1.5, 1], { // Speed up
+  const logoScale = interpolate(frame, [22, 28, 40 ], [0, 1.5, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
     easing: Easing.out(Easing.exp),
   });
-  const logoOpacity = interpolate(frame, [10, 15], [0, 1], { // Speed up
+  const logoOpacity = interpolate(frame, [10, 15], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
 
   // Animate the subtitle card with a smoother transition from left to right
-  const subtitleTranslateX = interpolate(frame, [0, 22], [-100, 0], { // Speed up
+  const subtitleTranslateX = interpolate(frame, [0, 50], [-100, 0], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
     easing: Easing.out(Easing.exp),
   });
-  const subtitleOpacity = interpolate(frame, [0, 30], [0, 1], { // Speed up
+  const subtitleOpacity = interpolate(frame, [0, 30], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
@@ -74,7 +81,6 @@ const LowerThird = () => {
     <div
       className="absolute bottom-4 left-4 flex flex-col h-28 items-start space-y-2 p-4 bg-blue-600 text-white rounded-lg rounded-tr-[100px] rounded-bl-[100px] shadow-lg pr-14"
       style={{
-        // Animation for the whole lower third card
         transform: `translateX(${translateX}%) rotateY(${rotateY}deg)`,
         opacity: opacity,
         transformStyle: 'preserve-3d',
@@ -88,9 +94,8 @@ const LowerThird = () => {
         <div
           className="flex items-center absolute bottom-[-24px] left-[-20px] justify-center p-3 pr-20 bg-white rounded-lg rounded-bl-[100px] rounded-tr-[80px] shadow-md pl-10 pb-8 h-[120px]"
           style={{
-            // Animate the logo card sliding in
             transform: `translateX(${logoCardTranslateX}px)`,
-            transition: 'transform 0.5s ease-out', // Adjust timing as needed
+            opacity:logoCardOpacity,
           }}
         >
           <div className='relative'>
@@ -100,11 +105,10 @@ const LowerThird = () => {
               alt="Logo"
               className="ml-2"
               style={{
-                transform: `scale(${logoScale})`, // Pop-up effect
+                transform: `scale(${logoScale})`,
                 opacity: logoOpacity,
-                width: '4rem', // Adjust size as needed
-                height: '4rem', // Adjust size as needed
-                transition: 'transform 0.2s ease-out, opacity 0.3s ease-out', // Speed up
+                width: '4rem',
+                height: '4rem',
               }}
             />
           </div>
@@ -115,25 +119,22 @@ const LowerThird = () => {
           <div
             className="absolute left-[100px] bottom-[52px] flex items-center space-x-2 p-2 bg-red-600 text-white rounded-lg text-xl rounded-tr-[100px] pr-12 pl-12 shadow-md rounded-bl-[100px]"
             style={{
-              // Smooth animation for the subtitle card from left to right
               transform: `translateX(${subtitleTranslateX}px)`,
               opacity: subtitleOpacity,
               transformStyle: 'preserve-3d',
-              transition: 'transform 0.5s ease-out, opacity 0.5s ease-out', // Speed up
             }}
           >
             {/* Subtitle text animation */}
             {subtitleChars.map((item, index) => {
-              // Character-specific animations for the subtitle
-              const charOpacity = interpolate(frame, [30 + index * 2, 35 + index * 2], [0, 1], { // Speed up
+              const charOpacity = interpolate(frame, [30 + index * 2, 35 + index * 2], [0, 1], {
                 extrapolateLeft: 'clamp',
                 extrapolateRight: 'clamp',
               });
-              const charTranslateX = interpolate(frame, [30 + index * 2, 35 + index * 2], [10, 0], { // Speed up
+              const charTranslateX = interpolate(frame, [30 + index * 2, 35 + index * 2], [10, 0], {
                 extrapolateLeft: 'clamp',
                 extrapolateRight: 'clamp',
               });
-              const charRotateX = interpolate(frame, [30 + index * 2, 35 + index * 2], [90, 0], { // Speed up
+              const charRotateX = interpolate(frame, [30 + index * 2, 35 + index * 2], [90, 0], {
                 extrapolateLeft: 'clamp',
                 extrapolateRight: 'clamp',
               });
@@ -146,7 +147,6 @@ const LowerThird = () => {
                     opacity: charOpacity,
                     transform: `translateX(${charTranslateX}px) rotateX(${charRotateX}deg)`,
                     transformStyle: 'preserve-3d',
-                    transition: 'opacity 0.1s ease-out, transform 0.1s ease-out', // Speed up
                   }}
                 >
                   {item.char}
@@ -156,18 +156,17 @@ const LowerThird = () => {
           </div>
 
           {/* Title text animation */}
-          <div className="text-3xl font-bold flex ml-52 ">
+          <div className="text-3xl font-bold flex ml-52">
             {titleWords.map((item, index) => {
-              // Word-specific animations for the title
-              const wordOpacity = interpolate(frame, [15 + index * 5, 20 + index * 5], [0, 1], { // Speed up
+              const wordOpacity = interpolate(frame, [15 + index * 5, 20 + index * 5], [0, 1], {
                 extrapolateLeft: 'clamp',
                 extrapolateRight: 'clamp',
               });
-              const wordTranslateY = interpolate(frame, [15 + index * 5, 20 + index * 5], [10, 0], { // Speed up
+              const wordTranslateY = interpolate(frame, [15 + index * 5, 20 + index * 5], [10, 0], {
                 extrapolateLeft: 'clamp',
                 extrapolateRight: 'clamp',
               });
-              const wordRotateX = interpolate(frame, [15 + index * 5, 20 + index * 5], [90, 0], { // Speed up
+              const wordRotateX = interpolate(frame, [15 + index * 5, 20 + index * 5], [90, 0], {
                 extrapolateLeft: 'clamp',
                 extrapolateRight: 'clamp',
               });
@@ -180,10 +179,9 @@ const LowerThird = () => {
                     opacity: wordOpacity,
                     transform: `translateY(${wordTranslateY}px) rotateX(${wordRotateX}deg)`,
                     transformStyle: 'preserve-3d',
-                    transition: 'opacity 0.2s ease-out, transform 0.2s ease-out', // Speed up
                   }}
                 >
-                  {item.word}&nbsp; {/* Add space after each word */}
+                  {item.word}&nbsp;
                 </span>
               );
             })}
