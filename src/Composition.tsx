@@ -1,5 +1,4 @@
 import { AbsoluteFill } from 'remotion';
-;
 import { Subtitle } from './Subtitle';
 import { Title } from './Title';
 import { z } from 'zod';
