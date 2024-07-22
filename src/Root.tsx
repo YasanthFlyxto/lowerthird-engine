@@ -1,6 +1,7 @@
 import { Composition } from 'remotion';
 import { MyComposition, myCompSchema } from './Composition';
 import './style.css';
+import Logo from './flyxtologo.png';
 
 export const RemotionRoot: React.FC = () => {
 	return (
@@ -16,10 +17,10 @@ export const RemotionRoot: React.FC = () => {
 				defaultProps={{
 					titleText: 'Type Main Title Here',
 					subtitleText: 'Type Subtitle',
-					titleColor: '#ff0000',
+					titleColor: '#cc0f0f',
 					logoColor: '#00bfff',
-					subtitleColor: '#00bfff',
-					logoURL: 'high five logo-01.png',
+					subtitleColor: '#005fb8',
+					logoURL: Logo,
 				}}
 			/>
 		</>

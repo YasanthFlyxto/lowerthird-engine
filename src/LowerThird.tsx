@@ -1,5 +1,5 @@
 import { useCurrentFrame, interpolate, Easing } from 'remotion';
-import Logo from './high five logo-01.png';
+
 
 
 

@@ -8,6 +8,7 @@ import { BackgroundAnimation } from './BackgroundAnimation';
 import { RibbonAnimation } from './RibbonAnimation';
 
 
+
 export const myCompSchema = z.object({
 	titleText: z.string(),
 	subtitleText: z.string(),
