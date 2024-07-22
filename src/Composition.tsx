@@ -10,20 +10,25 @@ import { RibbonAnimation } from './RibbonAnimation';
 
 export const myCompSchema = z.object({
 	titleText: z.string(),
+	subtitleText: z.string(),
 	titleColor: zColor(),
 	logoColor: zColor(),
+
 });
 
 export const MyComposition: React.FC<z.infer<typeof myCompSchema>> = ({
 	titleText: propOne,
 	titleColor: propTwo,
 	logoColor: propThree,
+	subtitleText: propFour,
 }) => {
+
 	return (
 		<div>
-			<LowerThird />
-			{/* <BackgroundAnimation/> */}
-			{/* <RibbonAnimation/> */}
+			<LowerThird
+				titleText={propOne}
+				subtitleText={propFour}
+			/>
 		</div>
 	);
 };
