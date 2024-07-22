@@ -18,7 +18,6 @@ export const RemotionRoot: React.FC = () => {
 					titleText: 'Type Main Title Here',
 					subtitleText: 'Type Subtitle',
 					titleColor: '#cc0f0f',
-					logoColor: '#00bfff',
 					subtitleColor: '#005fb8',
 					logoURL: Logo,
 				}}
