@@ -19,7 +19,7 @@ const splitText = (text, splitBy = 'characters') => {
   return [];
 };
 
-const LowerThird = ({titleText,subtitleText}) => {
+const LowerThird = ({titleText,subtitleText,titleColor, subtitleColor}) => {
   const frame = useCurrentFrame();
 
   // Animate the entire lower third with a complex animation
@@ -91,11 +91,12 @@ const LowerThird = ({titleText,subtitleText}) => {
     <div>
       {/* Subtitle card */}
       <div
-        className="absolute left-[130px] bottom-[90px] flex items-center space-x-2 p-2  bg-red-600/80 text-white rounded-lg text-xl rounded-tr-[100px] pr-12 pl-12 shadow-md rounded-bl-[100px] z-30 "
+        className="absolute left-[130px] bottom-[90px] flex items-center space-x-2 p-2   text-white rounded-lg text-xl rounded-tr-[100px] pr-12 pl-12 shadow-md rounded-bl-[100px] z-30 "
         style={{
           transform: `translateX(${subtitleTranslateX}px)`,
           opacity: subtitleOpacity,
           transformStyle: 'preserve-3d',
+          backgroundColor: subtitleColor
         }}
       >
         {/* Subtitle text animation */}
@@ -130,7 +131,7 @@ const LowerThird = ({titleText,subtitleText}) => {
       </div>
       {/* Logo card sliding in from left to right */}
       <div
-        className="flex items-center absolute bottom-[15px] left-[10px] justify-center p-3 pr-20  bg-white/90 rounded-lg rounded-bl-[100px] rounded-tr-[80px] shadow-md pl-10 pb-8 h-[120px] z-10 overflow-hidden"
+        className="flex items-center absolute bottom-[15px] left-[10px] justify-center p-3 pr-20  bg-white rounded-lg rounded-bl-[100px] rounded-tr-[80px] shadow-md pl-10 pb-8 h-[120px] z-10 overflow-hidden"
         style={{
           transform: `translateX(${logoCardTranslateX}px)`,
           opacity: logoCardOpacity,
@@ -153,11 +154,12 @@ const LowerThird = ({titleText,subtitleText}) => {
         </div>
       </div>
       <div
-        className="absolute bottom-4 left-4 flex flex-col h-28 items-start space-y-2 p-4  bg-blue-600/70 text-white rounded-lg rounded-tr-[100px] rounded-bl-[100px] shadow-lg pr-14 overflow-hidden"
+        className="absolute bottom-4 left-4 flex flex-col h-28 items-start space-y-2 p-4   text-white rounded-lg rounded-tr-[100px] rounded-bl-[100px] shadow-lg pr-14 overflow-hidden"
         style={{
           transform: `translateX(${translateX}%) rotateY(${rotateY}deg)`,
           opacity: opacity,
           transformStyle: 'preserve-3d',
+          backgroundColor: titleColor
         }}
       >
         <div className='absolute py-[62px] w-[30px]  blur-[10px] top-[-42px] bg-white opacity-40 bottom-[-23px] rotate-[18deg] z-0'

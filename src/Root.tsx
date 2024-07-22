@@ -16,8 +16,9 @@ export const RemotionRoot: React.FC = () => {
 				defaultProps={{
 					titleText: 'Type Main Title Here',
 					subtitleText: 'Type Subtitle',
-					titleColor: '#000000',
+					titleColor: '#ff0000',
 					logoColor: '#00bfff',
+					subtitleColor: '#00bfff'
 
 				}}
 			/>

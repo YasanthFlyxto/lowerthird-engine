@@ -12,6 +12,7 @@ export const myCompSchema = z.object({
 	titleText: z.string(),
 	subtitleText: z.string(),
 	titleColor: zColor(),
+	subtitleColor:zColor(),
 	logoColor: zColor(),
 
 });
@@ -21,6 +22,7 @@ export const MyComposition: React.FC<z.infer<typeof myCompSchema>> = ({
 	titleColor: propTwo,
 	logoColor: propThree,
 	subtitleText: propFour,
+	subtitleColor:propFive,
 }) => {
 
 	return (
@@ -28,6 +30,8 @@ export const MyComposition: React.FC<z.infer<typeof myCompSchema>> = ({
 			<LowerThird
 				titleText={propOne}
 				subtitleText={propFour}
+				subtitleColor={propFive}
+				titleColor= {propTwo}
 			/>
 		</div>
 	);
