@@ -19,7 +19,7 @@ const splitText = (text, splitBy = 'characters') => {
   return [];
 };
 
-const LowerThird = ({titleText,subtitleText,titleColor, subtitleColor}) => {
+const LowerThird = ({titleText,subtitleText,titleColor, subtitleColor,logoURL}) => {
   const frame = useCurrentFrame();
 
   // Animate the entire lower third with a complex animation
@@ -141,7 +141,7 @@ const LowerThird = ({titleText,subtitleText,titleColor, subtitleColor}) => {
         <div className='relative'>
           {/* Logo with pop-up effect */}
           <img
-            src={Logo}
+            src={logoURL}
             alt="Logo"
             className=""
             style={{
@@ -197,7 +197,7 @@ const LowerThird = ({titleText,subtitleText,titleColor, subtitleColor}) => {
                   return (
                     <span
                       key={item.key}
-                      className="inline-block whitespace-nowrap pt-5"
+                      className="inline-block whitespace-nowrap pt-7"
                       style={{
                         opacity: wordOpacity,
                         transform: `translateY(${wordTranslateY}px) rotateX(${wordRotateX}deg)`,

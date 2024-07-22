@@ -18,8 +18,8 @@ export const RemotionRoot: React.FC = () => {
 					subtitleText: 'Type Subtitle',
 					titleColor: '#ff0000',
 					logoColor: '#00bfff',
-					subtitleColor: '#00bfff'
-
+					subtitleColor: '#00bfff',
+					logoURL: 'high five logo-01.png',
 				}}
 			/>
 		</>
