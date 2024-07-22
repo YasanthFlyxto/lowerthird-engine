@@ -5,7 +5,6 @@ import './style.css';
 export const RemotionRoot: React.FC = () => {
 	return (
 		<>
-			<div className='text-white text-3xl text-center py-3' >Lowerthird Engine for Siyaneroo TV</div>
 			<Composition
 				id="MyComp"
 				component={MyComposition}
